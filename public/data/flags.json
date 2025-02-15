@@ -1,0 +1,105 @@
+{
+    "flags": [
+        {
+            "id": 1,
+            "name": "Japan",
+            "source": "https://flagcdn.com/w320/jp.png"
+        },
+        {
+            "id": 2,
+            "name": "Ukraine", 
+            "source": "https://flagcdn.com/w320/ua.png"
+        },
+        {
+            "id": 3,
+            "name": "Saudi Arabia",
+            "source": "https://flagcdn.com/w320/sa.png"
+        },
+        {
+            "id": 4,
+            "name": "Belgium",
+            "source": "https://flagcdn.com/w320/be.png"
+        },
+        {
+            "id": 5,
+            "name": "China",
+            "source": "https://flagcdn.com/w320/cn.png"
+        },
+        {
+            "id": 6,
+            "name": "India",
+            "source": "https://flagcdn.com/w320/in.png"
+        },
+        {
+            "id": 7,
+            "name": "Croatia",
+            "source": "https://flagcdn.com/w320/hr.png"
+        },
+        {
+            "id": 8,
+            "name": "Mexico",
+            "source": "https://flagcdn.com/w320/mx.png"
+        },
+        {
+            "id": 9,
+            "name": "Sweden",
+            "source": "https://flagcdn.com/w320/se.png"
+        },
+        {
+            "id": 10,
+            "name": "Switzerland",
+            "source": "https://flagcdn.com/w320/ch.png"
+        },
+        {
+            "id": 11,
+            "name": "Latvia",
+            "source": "https://flagcdn.com/w320/lv.png"
+        },
+        {
+            "id": 12,
+            "name": "New Zealand",
+            "source": "https://flagcdn.com/w320/nz.png"
+        },
+        {
+            "id": 13,
+            "name": "Norway",
+            "source": "https://flagcdn.com/w320/no.png"
+        },
+        {
+            "id": 14,
+            "name": "South Korea",
+            "source": "https://flagcdn.com/w320/kr.png"
+        },
+        {
+            "id": 15,
+            "name": "Chile",
+            "source": "https://flagcdn.com/w320/cl.png"
+        },
+        {
+            "id": 16,
+            "name": "Finland",
+            "source": "https://flagcdn.com/w320/fi.png"
+        },
+        {
+            "id": 17,
+            "name": "Uruguay",
+            "source": "https://flagcdn.com/w320/uy.png"
+        },
+        {
+            "id": 18,
+            "name": "Thailand",
+            "source": "https://flagcdn.com/w320/th.png"
+        },
+        {
+            "id": 19,
+            "name": "South Africa",
+            "source": "https://flagcdn.com/w320/za.png"
+        },
+        {
+            "id": 20,
+            "name": "Mongolia",
+            "source": "https://flagcdn.com/w320/mn.png"
+        }
+
+    ]
+}

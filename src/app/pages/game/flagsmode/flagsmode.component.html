@@ -1,0 +1,47 @@
+<div class="game-container">
+  <!-- Map Background -->
+  <div class="loading-screen"  *ngIf="isLoading">
+    <img src="/GlobeTreck__3.png" class="floating-logo" alt="Loading..." />
+    <div class="loading-text">Loading Round {{currentRound}}</div>
+</div>
+  <div class="map-container">
+    
+    <app-flagsm (name)="setGuessedCountryName($event)"></app-flagsm>
+  </div>
+
+  <!-- Overlay UI Elements -->
+  <div class="uiholder">
+    <div class="top-bar">
+      <div class="nav" [class.menu-open]="isDropdownOpen">
+        <i class="fa-solid fa-bars" style="color: #FFD43B;" (click)="toggleDropdown()"></i>
+        <div class="dropdown-menu" [class.show]="isDropdownOpen">
+          <div class="menu-item" (click)="navigateToHome()">
+            <i class="fa-solid fa-house"></i> Home
+          </div>
+          <div class="menu-item" (click)="navigateToLeaderbord()">
+            <i class="fas fa-trophy"></i> Leaderboard
+          </div>
+          <div class="menu-item" (click)="quitGame()">
+            <i class="fa-solid fa-sign-out"></i> Quit
+          </div>
+        </div>
+        <img src="/GlobeTreck__2.png" alt="">
+    </div>
+      <div class="flag-container" *ngIf="currentFlag">
+        <img class="flag-image" [src]="currentFlag.source" [alt]="currentFlag.name">
+      </div>
+        <div class="timer">
+          <div class="round">Round: {{ currentRound }}</div>
+          <span [ngClass]="{'warning': timer <= 60, 'danger': timer <= 30, 'finished': timer == 0}">
+            ⏳ Time Left: {{ minutes }}:{{ seconds < 10 ? '0' : '' }}{{ seconds }}
+          </span>
+        </div>
+  </div>
+  
+    <div class="overlay">
+      <div class="bottom-bar">
+        <button class="submitbtn" (click)="finishRound()">Submit Guess</button>
+      </div>
+    </div>
+  </div>
+</div>

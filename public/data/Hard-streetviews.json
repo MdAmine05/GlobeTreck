@@ -1,0 +1,74 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "name": "Unknown Location",
+            "latitude": 4.603099220526401,
+            "longitude": 101.0799719212334,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739399064031!6m8!1m7!1sBGF-2fBsiACpi6vlnFxrSA!2m2!1d4.603099220526401!2d101.0799719212334!3f174.8104990841928!4f-4.932030113126473!5f0.8733269551093792' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 2,
+            "name": "Unknown Location",
+            "latitude": -43.54903195589165,
+            "longitude": 172.6366165850318,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739399591567!6m8!1m7!1sUfFTUQjH1_41aORqEXixnw!2m2!1d-43.54903195589165!2d172.6366165850318!3f9.40267499067722!4f-15.02193698460448!5f0.7820865974627469' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 3,
+            "name": "Unknown Location",
+            "latitude": 36.72620682246586,
+            "longitude": -78.13163561727758,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739438920993!6m8!1m7!1s5ZhaOmCjiW19lW1Bxp99lg!2m2!1d36.72620682246586!2d-78.13163561727758!3f172.46862473227984!4f-18.34428874418535!5f0.7820865974627469' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 4,
+            "name": "Unknown Location",
+  "latitude": 32.92016312713324,
+  "longitude": 35.25571558044891,
+  "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739444478699!6m8!1m7!1sQRxMj3xFirtlyGG6M8EbhA!2m2!1d32.92016312713324!2d35.25571558044891!3f15.255181928296906!4f-23.175589902045985!5f0.7820865974627469' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 5,
+            "name": "Unknown Location",
+            "latitude": -25.63822347002641,
+            "longitude": 27.78077982504303,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739399738809!6m8!1m7!1ssdPMgNKasbkpT8Yne-tVrQ!2m2!1d-25.63822347002641!2d27.78077982504303!3f231.9566!4f0!5f0.7820865974627469' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 6,
+            "name": "Unknown Location",
+            "latitude": 56.32838024874115,
+            "longitude": 43.98803287413551,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739399799637!6m8!1m7!1s2ezwvA4TGsWFLd98uqXL6w!2m2!1d56.32838024874115!2d43.98803287413551!3f260.33496589402296!4f-15.03909004112532!5f0.7820865974627469' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 7,
+            "name": "Unknown Location",
+            "latitude": 62.24035580540117,
+            "longitude": 25.74310323296729,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739399885445!6m8!1m7!1sJSmA0sDNJ4iox0ITh5FQiQ!2m2!1d62.24035580540117!2d25.74310323296729!3f140.69068531355737!4f-26.049140637828962!5f0.8344639950367769' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 8,
+            "name": "Unknown Location",
+            "latitude": 53.27416335376572,
+            "longitude": -9.048132223436522,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739399938915!6m8!1m7!1suZS24CGGsVBJjK9XiKCsKQ!2m2!1d53.27416335376572!2d-9.048132223436522!3f93.96478745820467!4f-16.525778442819444!5f0.7820865974627469' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 9,
+            "name": "Unknown Location",
+            "latitude": 25.21480756540787,
+            "longitude": 75.9400249379691,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739399985894!6m8!1m7!1s7F50HsLaW9iJbZpO7Mh5jA!2m2!1d25.21480756540787!2d75.9400249379691!3f332.94855!4f0!5f0.7820865974627469' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        },
+        {
+            "id": 10,
+            "name": "Unknown Location",
+            "latitude": 34.50461427082202,
+            "longitude": 135.595269679142,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v1739400037714!6m8!1m7!1sVGhx9Er3aWkvtHMyqgdntg!2m2!1d34.50461427082202!2d135.595269679142!3f140.43514319740717!4f-11.892485203881819!5f0.7820865974627469' width='100%' height='100%' style='border:0;' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        }
+    ]
+}

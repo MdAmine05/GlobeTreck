@@ -1,0 +1,83 @@
+<!-- <div class="allholder">
+    <div #mapContainer id="map"></div>
+    <div class="score">
+        <h1>Round Results</h1>
+        <div class="result-details">
+            <div class="round-info">
+            <h2>Round Details</h2>
+            <p><strong>Round:</strong> {{ round }}</p>
+            <p><strong>Guessed Country:</strong> {{ guessedCountry }}</p>
+            <p><strong>Round Score:</strong> {{ roundScore }}</p>
+            <p><strong>Total Score:</strong> {{ totalScore }}</p>
+            <p><strong>Time Left:</strong> {{ timeLeft }} seconds</p>
+            </div>
+        </div> 
+        <div class="distance">
+            <p><strong>You Are</strong> {{ distance }}KM <strong>Far</strong></p>
+        </div>
+        <div class="actions">
+            <button *ngIf="!isFinal" (click)="goToNextRound()" class="next-round-btn">Next Round</button>
+            <button *ngIf="isFinal" class="save-score-btn" (click)="saveScore()">SAVE SCORE</button>
+            <a href="/home" class="home-link"><button class="home-btn">HOME PAGE</button></a>
+        </div>
+    </div>
+</div> -->
+<div class="game-screen">
+    <h2 class="round-title">Round {{round}}</h2>
+    
+    
+    <!-- Map Container -->
+        <div #mapContainer id="map"></div>
+  
+    <!-- Results Section -->
+    <div class="results-section">
+      <div class="score-container">
+        <div class="distance">
+            <p><strong>You Are</strong> {{ distance }}KM <strong>Far</strong></p>
+        </div>
+        <div class="points">{{roundScore}} points</div>
+        <div class="score-bar">
+          <div class="score-progress" [style.width.%]="(roundScore/1000) * 100"></div>
+        </div>
+      </div>
+  
+      <!-- Info Tables Container -->
+      <div class="tables-container">
+        <!-- Round Results Table -->
+        <div class="info-table">
+          <h3 class="table-title">Round Results</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td>Round</td>
+                <td>{{round}}/10</td>
+              </tr>
+              <tr>
+                <td>Total Score</td>
+                <td>{{totalScore}}</td>
+              </tr>
+              <tr>
+                <td>Time Left</td>
+                <td>{{timeLeft}} seconds</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <div class="button-container">
+        <button *ngIf="!isFinal" (click)="goToNextRound()" class="next-round-btn">
+          START NEXT ROUND
+        </button>
+        <button *ngIf="isFinal" (click)="saveScore()" class="next-round-btn">
+          SAVE SCORE
+        </button>
+        <a *ngIf="isFinal" (click)="goToLeaderboard()" class="leaderbtn">
+          Leaderboard
+        </a>
+        <a (click)="goHome()" class="secondary-button">
+          RETURN HOME
+        </a>
+      </div>
+    </div>
+  </div>

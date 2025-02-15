@@ -1,0 +1,75 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "name": "Eiffel Tower, France",
+            "latitude": 48.8584,
+            "longitude": 2.2945,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcE5yaXlncFBtNHpFb3hIbWFjVUFNdGF0ZkhNRVZfVVlxN2JXMzdE!2m2!1d48.8584!2d2.2945!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 2,
+            "name": "Statue of Liberty, USA",
+            "latitude": 40.6892,
+            "longitude": -74.0445,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcE5NR3FZbk1YcEZPbWVoUnJJaDdIcHdNUjhCOVlkOHR5ZGRPR2l1!2m2!1d40.6892!2d-74.0445!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 3,
+            "name": "Colosseum, Italy",
+            "latitude": 41.8902,
+            "longitude": 12.4922,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcE45b3pZTjRmTlF4S3pMczZWQjlVMlQ4Tk51OGF6aGdQaWw5X3hx!2m2!1d41.8902!2d12.4922!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 4,
+            "name": "Christ the Redeemer, Brazil",
+            "latitude": -22.9519,
+            "longitude": -43.2105,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcE5ueDZWalhMeFh4Y2pja2R3R1lPcFZoZFFNVWkxXzA4Z2xvODhw!2m2!1d-22.9519!2d-43.2105!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 5,
+            "name": "Great Wall of China, China",
+            "latitude": 40.4319,
+            "longitude": 116.5704,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcE4tTk5mNlF6M0oyQ2p2R2xqNGJGcGJNR3FkdVRXSlFZMUJ5V3dJ!2m2!1d40.4319!2d116.5704!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 6,
+            "name": "Petra, Jordan",
+            "latitude": 30.3285,
+            "longitude": 35.4444,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcFBxU0FLS3RIM2pXOGxpeG9hVklOZGZJdDVNdEZJRGtPYW5PMXZR!2m2!1d30.3285!2d35.4444!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 7,
+            "name": "Machu Picchu, Peru",
+            "latitude": -13.1631,
+            "longitude": -72.5450,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcE1fbE9BNllidUVSbGRXcVpPdFBVNXlYRk5jSnlveU5wVXlOT25U!2m2!1d-13.1631!2d-72.5450!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 8,
+            "name": "Antelope Canyon, USA",
+            "latitude": 36.8619,
+            "longitude": -111.3743,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcE9oNjBKNjNnZ0FCTE03TXE5Z0thZm9PQ2JhY1ZDaW56Qm1IQjlI!2m2!1d36.8619!2d-111.3743!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 9,
+            "name": "Giant's Causeway, Northern Ireland",
+            "latitude": 55.2408,
+            "longitude": -6.5116,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcFBGTVk3TEZhb3oyOVpvWW9KcU9veFUtSktYSG1vOWJ2dzF5RzVJ!2m2!1d55.2408!2d-6.5116!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+        },
+        {
+            "id": 10,
+            "name": "Hassan II Mosque, Casablanca, Morocco",
+            "latitude": 33.6086,
+            "longitude": -7.6324,
+            "iframe": "<iframe src='https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1sCAoSLEFGMVFpcE1XalFuR1k1Y0RmUXdPT1E3anYwWTQ1bTg1U3ItV3hhNHJXdThw!2m2!1d33.6086!2d-7.6324!3f0!4f0!5f0' width='100%' height='100%' style='border:0;'></iframe>"
+       }
+    ]
+}
+

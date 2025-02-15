@@ -1,0 +1,319 @@
+/* Full-screen container */
+.all{
+  background: linear-gradient(20deg, rgba(0, 87, 183, 0.4) 0%, var(--primary-colorv2) 50%);
+}
+
+.title{
+  font-family: 'Cinzel', serif;
+  color: var(--secondary-colorv2);
+  font-size: 3rem;
+  text-align: center;
+  padding: 5px 0;
+  text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: 4px;
+  font-weight: 700;
+  background :  linear-gradient(90deg, #ffffff 0%, var(--secondary-colorv2) 10%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+.title h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40vw;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--secondary-colorv2), transparent);
+}
+.frame {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+/* Medal icon size */
+.medals {
+  font-size: 1.8rem;
+}
+
+/* Slider container */
+.slider-container {
+  width: 100%;
+  max-width: 130vh; /* Adjusted for better fit */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Leaderboard slider */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 300%; /* Dynamic width for multiple slides */
+}
+
+/* Individual leaderboard slide */
+.leaderboard-slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Leaderboard container */
+.leaderboard-container {
+  background: var(--primary-colorv2);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 130vh;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+/* Leaderboard title */
+.leaderboard-container h2 {
+  font-family: 'Cinzel', serif;
+  color: #eeeeee;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255, 217, 0, 0.3);
+  letter-spacing: 4px;
+  font-weight: 700;
+  background-color: var(--secondary-colorv2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+/* Title underline effect */
+
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin: 1rem 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+thead tr {
+  background: rgba(0, 87, 183, 0.1);
+}
+
+th {
+  color: var(--secondary-colorv2);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+tbody tr {
+  background: rgba(0, 87, 183, 0.05);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+tbody tr:hover {
+  background: rgba(0, 87, 183, 0.15);
+  transform: translateX(4px);
+}
+
+td {
+  color: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Ranking Numbers */
+.numbers {
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Medal Colors */
+tr:nth-child(1) td {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.15), transparent);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+tr:nth-child(2) td {
+  background: linear-gradient(90deg, rgba(192, 192, 192, 0.15), transparent);
+  text-shadow: 0 0 10px rgba(192, 192, 192, 0.6);
+}
+
+tr:nth-child(3) td {
+  background: linear-gradient(90deg, rgba(205, 127, 50, 0.15), transparent);
+  text-shadow: 0 0 10px rgba(205, 127, 50, 0.6);
+}
+
+tr:nth-child(n) .numbers span {
+  font-size: 1.5rem;
+  display: inline-block;
+  animation: bounce 1s infinite;
+}
+  
+
+@keyframes bounce {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-3px); }
+}
+
+/* Button Styles */
+button {
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(30deg, black , #132941 50%);
+  color: white;
+  border: 3px solid var(--secondary-colorv2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--secondary-colorv2);
+}
+
+/* Navigation Arrows */
+.slider-button {
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--secondary-colorv2);
+  color: var(--secondary-colorv2);
+  font-size: 3rem;
+  font-weight: bold;
+  width: 7vh;
+  height: 7vh;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  z-index: 1;
+}
+
+.slider-button:hover {
+  background: var(--secondary-colorv2);
+  color: black;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-button.next {
+  left : 95%;
+  margin-top: 2px;
+}
+
+.slider-button.prev {
+  right: 95%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .leaderboard-container {
+    padding: 1rem;
+    max-width: 90vw;
+  }
+
+  .leaderboard-container h2 {
+    font-size: 2.2rem;
+  }
+
+  th, td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .slider-button {
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+  }
+  .slider-button.next {
+    right: 70%;
+  }
+  .slider-button.prev {
+    left: 70%;
+  }
+
+}
+
+.secondary-button {
+  background-color: #4b5563;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: 3px solid #374151;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background: transparent;
+    color: #ffffff;
+    border: 3px solid #374151;
+  }
+}
+
+
+/* for mobile */
+
+@media (max-width: 480px) {
+  /* Make leaderboard container use full screen width */
+  .leaderboard-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+  }
+  
+  .slider-container {
+    max-width: 100%;
+  }
+  
+  /* Reposition slider navigation arrows to the bottom */
+  .slider-button {
+    position: absolute;
+    bottom: 10px; /* Adjust this value as needed */
+    transform: none; /* Remove the vertical centering transform */
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .slider-button.next {
+    right: 10px;
+    left: auto;
+  }
+  
+  .slider-button.prev {
+    left: 10px;
+    right: auto;
+  }
+}

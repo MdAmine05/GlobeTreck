@@ -1,0 +1,88 @@
+<div class="game-screen">
+  <h2 class="round-title">Round {{round}}</h2>
+  <div class="loading-screen"  *ngIf="isLoading">
+    <img src="/GlobeTreck__3.png" class="floating-logo" alt="Loading..." />
+    <div class="loading-text">Loading Results for Round {{round}}</div>
+  </div>
+  <!-- Map Container -->
+  <div #mapContainer id="map"></div>
+
+  <!-- Results Section -->
+  <div class="results-section">
+    <div class="score-container">
+      <h3 class="right" *ngIf="istrue">You guessed Right✔️​</h3>
+      <h3 class="wrong" *ngIf="!istrue">You guessed Wrong❌​</h3>
+      <div class="points">{{roundScore}} points</div>
+      <div class="score-bar">
+        <div class="score-progress" [style.width.%]="(roundScore/200) * 100"></div>
+      </div>
+    </div>
+
+    <!-- Info Tables Container -->
+    <div class="tables-container">
+      <!-- Round Results Table -->
+      <div class="info-table">
+        <h3 class="table-title">Round Results</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>Your guess</td>
+              <td>{{guessedCountry}}</td>
+            </tr>
+            <tr>
+              <td>Round</td>
+              <td>{{round}}/10</td>
+            </tr>
+            <tr>
+              <td>Total Score</td>
+              <td>{{totalScore}}</td>
+            </tr>
+            <tr>
+              <td>Time Left</td>
+              <td>{{timeLeft}} seconds</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Country Info Table -->
+      <div class="info-table">
+        <div class="country">
+        <h3 class="table-title">Country Details</h3>
+        </div><br>
+        <img [src]="flagImage" [alt]="flagName" class="flag-image" />
+        <table>
+          <tbody>
+            <tr>
+              <td>Country</td>
+              <td>{{flagName}}</td>
+            </tr>
+            <tr>
+              <td>Capital</td>
+              <td>{{capital}}</td>
+            </tr>
+            <tr>
+              <td>Population</td>
+              <td>{{population | number}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button *ngIf="!isFinal" (click)="goToNextRound()" class="next-round-btn">
+        START NEXT ROUND
+      </button>
+      <button *ngIf="isFinal" (click)="saveScore()" class="next-round-btn">
+        SAVE SCORE
+      </button>
+      <a *ngIf="isFinal" (click)="goToLeaderboard()" class="leaderbtn">
+        Leaderboard
+      </a>
+      <a (click)="goHome()" class="secondary-button">
+        RETURN HOME
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+:root {
+  --primary-color: #46423a;
+  --secondary-color: rgba(	206	,205,	68 , 0.5);
+  --primary-colorv2: #1a1d24;
+  --secondary-colorv2: #FFD700;
+  --primary-black: #000000;
+  --text-white: #FFFFFF;
+  --text-gray: #CCCCCC;
+  --neon-color: #FFD700;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }

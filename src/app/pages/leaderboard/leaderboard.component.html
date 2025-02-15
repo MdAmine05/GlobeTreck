@@ -1,0 +1,51 @@
+<div class="all">
+  <div class="title">
+    <h1 class="title">🏆 Leaderboard</h1>
+  </div>
+
+  <div class="frame">
+    <!-- Previous Button -->
+    <div class="prev">
+      <button class="slider-button prev" (click)="previousMode()">&#8249;</button>
+    </div>
+
+    <!-- Leaderboard Table -->
+    <div class="leaderboard-container">
+      <h2>{{ modes[currentModeIndex] }}</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of leaderboardData; let i = index">
+            <td class="numbers">
+              <span>&nbsp;{{ i + 1 }}</span>
+            </td>
+            <td>{{ entry.name }}</td>
+            <td>
+              <span class="medals" *ngIf="i === 0">🥇</span>
+              <span class="medals" *ngIf="i === 1">🥈</span>
+              <span class="medals" *ngIf="i === 2">🥉</span>
+              {{ entry.score }}
+            </td>
+            <td>{{ entry.time }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="/home" class="secondary-button">
+        RETURN HOME
+      </a>
+    </div>
+
+    <!-- Next Button -->
+    <div class="next">
+      <button class="slider-button next" (click)="nextMode()">&#8250;</button>
+    </div>
+  </div>
+</div>

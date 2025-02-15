@@ -1,0 +1,47 @@
+    <div class="game-container">
+      <!-- Animated Background Map -->
+      <div class="background-map">
+        <canvas #mapCanvas></canvas>
+        <div class="overlay"></div>
+      </div>
+
+      <!-- Floating Particles -->
+      <canvas #particleCanvas class="particle-layer"></canvas>
+
+      <!-- Main Content -->
+      <div class="content" [@fadeIn]>
+        <!-- Logo -->
+        <div class="logo-container">
+          <img src="/new-logo.png" alt="GlobeTreck Logo" class="logo">
+        </div>
+        <!-- Title -->
+        <h1 class="neon-title">GlobeTreck</h1>
+        
+        <!-- Subtitle -->
+        <p class="subtitle">Test your geography knowledge in fun and challenging modes!</p>
+
+        <!-- Main Button -->
+        <button class="gradient-button" 
+                (mouseenter)="onButtonHover($event)" 
+                (mouseleave)="onButtonLeave($event)" 
+                [routerLink]="['/select-mode']">
+          Start Game
+        </button>
+
+        <!-- Menu Options -->
+        <div [routerLink]="['/leaderboard']" class="menu-options">
+          <button class="glass-button leader">
+            <i class="fas fa-trophy"></i>
+            Leaderboard
+          </button>
+          <button [routerLink]="['/how-to-play']" class="how glass-button">
+            <i class="fa-solid fa-circle-question"></i>
+            How to Play
+          </button>
+          <button [routerLink]="['/about']" class="glass-button about">
+            <i class="fa-solid fa-users"></i>
+            About Us
+          </button>
+        </div>
+      </div>
+    </div>

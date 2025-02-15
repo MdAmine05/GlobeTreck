@@ -1,0 +1,27 @@
+<!-- to complete later -->
+ <div class="main" [style.background-image]="'url(' + currentBackground + ')'">
+    <div class="header">
+        <div class="logo" (click)="navigateToHome()"><img src="/new-logo.png" alt=""></div>
+        <div class="title">Select Mode</div>
+    </div>
+    <div id="holder">
+        <div class="mode" id="street" 
+            [class.selected]="selectedMode === 'street'"
+            (click)="selectMode('street')">
+            <span class="mode-text">StreetView</span>
+        </div>
+        <div class="mode" id="landmark"
+            [class.selected]="selectedMode === 'landmark'"
+            (click)="selectMode('landmark')">
+            <span class="mode-text">Landmarks</span>
+        </div>
+        <div class="mode" id="flags"
+            [class.selected]="selectedMode === 'flags'"
+            (click)="selectMode('flags')">
+            <span class="mode-text">Flags</span>
+        </div>   
+    </div>
+    <div class="select">
+        <button class="button-33" (click)="startSelectedMode()" [disabled]="!selectedMode">Select This Mode</button>
+    </div>
+</div>

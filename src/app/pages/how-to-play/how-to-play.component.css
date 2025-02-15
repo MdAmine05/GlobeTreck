@@ -119,3 +119,29 @@
       font-size: 1rem;
     }
     }
+
+    .secondary-button {
+      background-color: #4b5563;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      border: 3px solid #374151;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+      position: absolute;
+      top : 90%;
+      left : 40%;
+
+      
+      &:hover {
+        background: transparent;
+        color: #ffffff;
+        border: 3px solid #374151;
+      }
+    }
+    

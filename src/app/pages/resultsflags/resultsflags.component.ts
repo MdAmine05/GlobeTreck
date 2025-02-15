@@ -144,7 +144,7 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
   initializeMap(): void {
     this.map = new maplibregl.Map({
       container: this.mapContainer.nativeElement,
-      style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=ux7U0JoDzUbunhk0mxHh',
+      style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=jo4L1ZLMvxrPverTEv7H',
       center: [2, 45],
       zoom: 3,
       attributionControl: false

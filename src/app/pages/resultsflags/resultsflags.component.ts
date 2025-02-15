@@ -20,7 +20,7 @@ export interface LeaderboardEntry {
 export class ResultsflagsComponent implements OnInit, AfterViewInit {
   @ViewChild('mapContainer', { static: false }) mapContainer!: ElementRef;
   private map!: maplibregl.Map;
-  
+
   // Data from query parameters
   flagName: string = '';
   flagImage: string = '';
@@ -32,10 +32,9 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
   isFinal: boolean = false;
   timePassed: number = 0;
   istrue: boolean = false;
-  // Disable hover effects for this results view.
+  // Disable hover effects for the results view
   hover: boolean = false;
   isLoading: boolean = true;
-
   // Additional country details
   capital: string = 'N/A';
   population: number = 0;
@@ -61,9 +60,8 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
     private leaderboardService: LeaderboardService
   ) {}
 
-  async ngOnInit(): Promise<void> {
-    // Read query parameters
-    this.route.queryParams.subscribe(async params => {
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
       this.flagName = params['flagName'] || '';
       this.flagImage = params['flagImage'] || '';
       this.guessedCountry = params['guessedCountry'] || '';
@@ -73,26 +71,15 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
       this.round = +params['currentRound'] || 1;
       this.timePassed = +params['timePassed'] || 0;
 
-      if (!this.flagName) {
+      if (this.flagName) {
+        // Fetch details for the correct country
+        this.fetchCountryDetails(this.flagName);
+        // Fetch details for the guessed country (if provided)
+        this.fetchGuessedCountryDetails();
+      } else {
         this.loading = false;
         this.error = 'No country name provided';
-        return;
       }
-
-      // Fetch details for the correct country (used for additional info and map)
-      await this.fetchCountryDetails(this.flagName);
-
-      // Fetch details for the guessed country if provided
-      if (this.guessedCountry) {
-        await this.fetchGuessedCountryDetails();
-      }
-
-      // Update the map bounds once both coordinates are fetched.
-      setTimeout(() => {
-        this.updateMapBounds();
-      }, 1300);
-
-      // Update scores and flags.
       this.totalScore += this.roundScore;
       if (this.guessedCountry === this.flagName) {
         this.istrue = true;
@@ -110,7 +97,6 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
     }, 1800);
   }
 
-  // Fetch correct country details (including coordinates, capital, etc.)
   async fetchCountryDetails(countryName: string): Promise<void> {
     const url = `https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}?fullText=true`;
     try {
@@ -120,10 +106,10 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
       }
       const data = await response.json();
       const countryData = data[0];
-      this.capital = (countryData.capital && countryData.capital.length > 0) ? countryData.capital[0] : 'N/A';
+      this.capital = countryData.capital && countryData.capital.length > 0 ? countryData.capital[0] : 'N/A';
       this.population = countryData.population || 0;
       if (countryData.latlng && countryData.latlng.length >= 2) {
-        // Note: REST Countries API returns [lat, lng]
+        // REST Countries API returns [lat, lng]
         this.latitudeCorrect = countryData.latlng[0];
         this.longitudeCorrect = countryData.latlng[1];
       }
@@ -135,52 +121,49 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // Fetch guessed country details (for its coordinates)
   async fetchGuessedCountryDetails(): Promise<void> {
-    if (!this.guessedCountry) return;
-    const url = `https://restcountries.com/v3.1/name/${encodeURIComponent(this.guessedCountry)}?fullText=true`;
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Error fetching details for ${this.guessedCountry}`);
+    if (this.guessedCountry) {
+      const url = `https://restcountries.com/v3.1/name/${encodeURIComponent(this.guessedCountry)}?fullText=true`;
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Error fetching details for ${this.guessedCountry}`);
+        }
+        const data = await response.json();
+        const countryData = data[0];
+        if (countryData.latlng && countryData.latlng.length >= 2) {
+          this.latitudeGuessed = countryData.latlng[0];
+          this.longitudeGuessed = countryData.latlng[1];
+        }
+      } catch (err) {
+        console.error('Error fetching guessed country details:', err);
       }
-      const data = await response.json();
-      const countryData = data[0];
-      if (countryData.latlng && countryData.latlng.length >= 2) {
-        this.latitudeGuessed = countryData.latlng[0];
-        this.longitudeGuessed = countryData.latlng[1];
-      }
-    } catch (err) {
-      console.error('Error fetching guessed country details:', err);
     }
   }
 
-  // Initialize the map and load the GeoJSON for country borders.
   initializeMap(): void {
     this.map = new maplibregl.Map({
       container: this.mapContainer.nativeElement,
-      style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=jo4L1ZLMvxrPverTEv7H',
+      style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=ux7U0JoDzUbunhk0mxHh',
       center: [2, 45],
-      zoom: 3,
-      attributionControl: false
+      zoom: 3
     });
     this.map.addControl(new maplibregl.NavigationControl());
     this.map.on('load', () => {
       this.loadGeoJson();
-      // After the map is loaded wait 2 seconds to update bounds if coordinates are ready.
+      // Always bound the markers after the map (and GeoJSON) have loaded
       setTimeout(() => {
-        this.updateMapBounds();
+        this.boundMarkers();
       }, 1300);
     });
   }
 
-  // Load the GeoJSON data for country borders.
   private loadGeoJson(): void {
     const geoJsonUrl = 'data/borders.json';
     fetch(geoJsonUrl)
       .then(response => response.json())
       .then(geoJsonData => {
-        // Assign a unique ID to each feature.
+        // Assign a unique ID to each feature
         geoJsonData.features.forEach((feature: any, index: number) => {
           feature.id = index;
         });
@@ -189,14 +172,13 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
           data: geoJsonData
         });
 
-        // Build the fill expression based on the provided country names.
         const fillColorExpression = [
           'case',
-          // Always color the correct country green.
+          // Always fill the correct country with green:
           ['==', ['get', 'NAME'], this.flagName], '#00ff00',
-          // Color the guessed country red.
+          // Always fill the guessed country with red:
           ['==', ['get', 'NAME'], this.guessedCountry], '#ff0000',
-          // If hover effects were enabled, add those (here disabled).
+          // Hover effects (disabled here)
           this.hover
             ? ['case',
                 ['boolean', ['feature-state', 'hover'], false], '#ffff00',
@@ -216,7 +198,7 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
           }
         });
 
-        // Setup mouse events.
+        // Set up mouse events for interactivity
         this.map.on('mousemove', 'countries-layer', (e) => this.highlightFeature(e));
         this.map.on('mouseleave', 'countries-layer', (e) => this.resetHighlight(e));
         this.map.on('click', 'countries-layer', (e) => this.clickFeature(e));
@@ -227,7 +209,6 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
       });
   }
 
-  // Highlight a country when hovering.
   private highlightFeature(e: maplibregl.MapMouseEvent): void {
     const features = this.map.queryRenderedFeatures(e.point, { layers: ['countries-layer'] });
     if (features.length > 0) {
@@ -241,7 +222,6 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // Remove hover state when the mouse leaves.
   private resetHighlight(e: maplibregl.MapMouseEvent): void {
     if (this.hoveredFeatureId !== undefined) {
       this.map.setFeatureState({ source: 'countries', id: this.hoveredFeatureId }, { hover: false });
@@ -249,7 +229,6 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // Handle a click on a country.
   private clickFeature(e: maplibregl.MapMouseEvent): void {
     const features = this.map.queryRenderedFeatures(e.point, { layers: ['countries-layer'] });
     if (features.length > 0) {
@@ -263,54 +242,72 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // Adjust the map to fit the provided coordinates.
-  fitMapToBounds(map: maplibregl.Map, coords: [number, number][]): void {
-    if (!map || coords.length < 1) {
-      console.error("Map not initialized or insufficient coordinates provided.");
-      return;
-    }
-    const bounds = new maplibregl.LngLatBounds();
-    coords.forEach(coord => bounds.extend(new maplibregl.LngLat(coord[0], coord[1])));
-    map.fitBounds(bounds, {
-      padding: { top: 50, bottom: 50, left: 50, right: 50 },
-      maxZoom: 3,
-      minZoom: 2,
-      linear: false,
-      duration: 1800
-    });
-  }
-
-  // Check if a coordinate is inside the current map viewport
-  updateMapBounds(): void {
-    // Ensure the map is loaded before attempting to update bounds
+  // ─── NEW BOUNDING LOGIC (COPIED FROM STREET VIEW) ─────────────────────────
+  private boundMarkers(): void {
     if (!this.map || !this.map.loaded()) {
       if (this.map) {
-        this.map.once('load', () => this.updateMapBounds());
+        this.map.once('load', () =>setTimeout(() => {
+          this.boundMarkers();
+        }, 1300));
       }
       return;
     }
-  
-    let coords: [number, number][] = [];
-  
-    if (this.longitudeCorrect && this.latitudeCorrect) {
-      coords.push([this.longitudeCorrect, this.latitudeCorrect]);
-    }
-  
-    if (this.longitudeGuessed && this.latitudeGuessed) {
-      coords.push([this.longitudeGuessed, this.latitudeGuessed]);
-    }
-  
-    // Always adjust the bounds if we have valid coordinates
-    if (coords.length > 0) {
-      this.fitMapToBounds(this.map, coords);
+    // If both guessed and correct coordinates exist, mimic the line logic
+    if (this.guessedCountry && this.latitudeGuessed && this.longitudeGuessed) {
+      const lineCoordinates = [
+        [this.longitudeGuessed, this.latitudeGuessed],
+        [this.longitudeCorrect, this.latitudeCorrect]
+      ];
+      const splitCoords = this.splitLine(lineCoordinates);
+      const bounds = new maplibregl.LngLatBounds();
+      splitCoords.forEach(coord => {
+        bounds.extend(new maplibregl.LngLat(coord[0], coord[1]));
+      });
+      this.map.fitBounds(bounds, {
+        padding: { top: 50, bottom: 50, left: 50, right: 50 },
+        maxZoom: 3,
+        minZoom: 2,
+        duration: 1800
+      });
+    } else if (this.latitudeCorrect && this.longitudeCorrect) {
+      // If no guessed country, fly to the correct country’s location
+      this.map.flyTo({
+        center: [this.longitudeCorrect, this.latitudeCorrect],
+        zoom: 3,
+        speed: 0.8,
+        curve: 1,
+        essential: true
+      });
     }
   }
-  
+
+  private splitLineSegment(start: number[], end: number[]): number[][] {
+    const lngDiff = Math.abs(end[0] - start[0]);
+    if (lngDiff > 180) {
+      const midLng = (start[0] + end[0] + (start[0] > end[0] ? 360 : -360)) / 2;
+      const midPoint = [midLng, (start[1] + end[1]) / 2];
+      const segment1 = this.splitLineSegment(start, midPoint);
+      const segment2 = this.splitLineSegment(midPoint, end);
+      return segment1.concat(segment2);
+    } else {
+      return [start, end];
+    }
+  }
+
+  private splitLine(coordinates: number[][]): number[][] {
+    let splitCoordinates: number[][] = [];
+    for (let i = 0; i < coordinates.length - 1; i++) {
+      const segment = this.splitLineSegment(coordinates[i], coordinates[i + 1]);
+      splitCoordinates.push(...segment);
+    }
+    return splitCoordinates;
+  }
+  // ─────────────────────────────────────────────────────────────────────────────
 
   // Navigation and leaderboard functions
   goToNextRound(): void {
     this.round++;
-    this.router.navigate(['/flags'], { 
+    this.router.navigate(['/flags'], {
       queryParams: { totalScore: this.totalScore, round: this.round, timePassed: this.timePassed }
     });
   }

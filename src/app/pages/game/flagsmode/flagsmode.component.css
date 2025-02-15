@@ -247,7 +247,7 @@
   transition: opacity 5s ease-in-out, transform 5s ease-in-out;
 }
 .floating-logo {
-  width: 150px; /* Adjust size */
+  width: 200px; /* Adjust size */
   height: auto;
   animation: float 2s ease-in-out infinite;
 }

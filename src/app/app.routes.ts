@@ -16,6 +16,7 @@ import { FlagsMComponent } from './pages/game/flags-maplibre/flagsm.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'select-mode', component: SelectModeComponent },
   { path: 'streetview', component: StreetviewmodeComponent },
   { path: 'landmarks' , component:LandmarksmodeComponent},

@@ -136,7 +136,7 @@ td:last-child {
   width: 10vh; /* Adjust width for better proportions */
   height: 6vh;
   border-radius: 5px;
-  object-fit: cover;
+  object-fit: contain;
   display: inline-block;
   vertical-align: middle;
 }

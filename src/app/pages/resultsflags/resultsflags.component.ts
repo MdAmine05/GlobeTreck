@@ -280,29 +280,32 @@ export class ResultsflagsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // Update the map bounds based on the fetched coordinates.
+  // Check if a coordinate is inside the current map viewport
   updateMapBounds(): void {
-    // If the map isn’t loaded yet, wait until it is.
+    // Ensure the map is loaded before attempting to update bounds
     if (!this.map || !this.map.loaded()) {
       if (this.map) {
         this.map.once('load', () => this.updateMapBounds());
       }
       return;
     }
-
+  
     let coords: [number, number][] = [];
+  
     if (this.longitudeCorrect && this.latitudeCorrect) {
-      // Add the correct country's coordinates.
       coords.push([this.longitudeCorrect, this.latitudeCorrect]);
     }
-    if (this.guessedCountry && this.longitudeGuessed && this.latitudeGuessed) {
+  
+    if (this.longitudeGuessed && this.latitudeGuessed) {
       coords.push([this.longitudeGuessed, this.latitudeGuessed]);
     }
-
+  
+    // Always adjust the bounds if we have valid coordinates
     if (coords.length > 0) {
       this.fitMapToBounds(this.map, coords);
     }
   }
+  
 
   // Navigation and leaderboard functions
   goToNextRound(): void {

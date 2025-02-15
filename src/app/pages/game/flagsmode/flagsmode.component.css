@@ -121,7 +121,7 @@
 
 .flag-image {
   width: 5vw;
-  height: auto;
+  max-height: 70px;
   border: 2px solid white;
   border-radius: 5px;
 }

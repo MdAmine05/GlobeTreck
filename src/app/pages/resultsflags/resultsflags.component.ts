@@ -197,10 +197,9 @@ export class ResultsflagsComponent implements OnInit {
   async initializeMap() {
     this.map = new maplibregl.Map({
       container: this.mapContainer.nativeElement,
-      style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=ux7U0JoDzUbunhk0mxHh',
-      center: [2, 45], // Initial view (longitude, latitude)
-      zoom: 3,
-      attributionControl: false,
+      style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=jo4L1ZLMvxrPverTEv7H',
+      center: [2, 45],
+      zoom: 3
     });
     this.map.addControl(new maplibregl.NavigationControl());
     this.map.on('load', () => {
